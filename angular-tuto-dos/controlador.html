@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+  <!-- <div ng-app="control">
+    <div ng-controller="myControl">
+      <p>{{ saludo }}</p>
+      <input type="number" ng-model="valor1" placeholder="Escribe un valor">
+      <input type="number" ng-model="valor2" placeholder="Escribe un valor">
+      <button ng-click="sumar()">Sumar</button>
+      <button ng-click="multiplicar()">Multiplicar</button>
+      <hr>
+      <p>{{result}}</p>
+      <h4 ng-controller="MySecondControl">{{frase}}</h4>
+    </div>
+  </div> -->
+
+
+    <div ng-app="directiva">
+      <p usuario nombre="Pamela"></p>
+      <usuario nombre="Genevie"><usuario/>
+      <h2 class="usuario" nombre="Eugenia"></h2>
+    </div>
+
+    <script type="text/javascript">
+      // var controlado = angular.module('control', []);
+      // controlado.controller('myControl', function($scope){
+        // $scope.saludo='Hola!!!';
+      //   var mensaje='Steph vas bien';
+      //   $scope.saludo=mensaje;
+      //
+      //   $scope.valor1=0;
+      //   $scope.valor2=0;
+      //
+      //   $scope.sumar = function(){
+      //     $scope.result=$scope.valor1 + $scope.valor2;
+      //   };
+      //
+      //   $scope.multiplicar = function(){
+      //     $scope.result = $scope.valor1 * $scope.valor2;
+      //   }
+      // });
+
+      // controlado.controller('MySecondControl', function($scope){
+      //   $scope.frase='Debes dormir ya!!!';
+      // });
+
+      var directiva = angular.module('directiva', []);
+
+      directiva.directive('usuario', function(){
+        var valoresInternos = {};
+        valoresInternos.restrict = 'C'; //puede ser E para tags o A para attr
+        valoresInternos.scope = {
+          usuarioNombre : '@nombre'
+        }
+        valoresInternos.template = 'Bienvenido {{ usuarioNombre }}';
+
+        return valoresInternos;
+      });
+    </script>
+  </body>
+</html>

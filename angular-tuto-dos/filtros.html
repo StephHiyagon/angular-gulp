@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='filtros'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>filtros-expresiones</title>
+    <script src="angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <h1>Pantalón azul</h1>
+    <hr>
+    <h3>Costo: {{15 | currency:'USD $'}}</h3>
+    <h3>Costo: {{12 | currency: 'PEN S/'}}</h3>
+
+    <p>{{'PROCEDENCIA' | lowercase}}</p>
+
+    <ul>
+      <li>{{'ChiLE' | uppercase}}</li>
+      <li>{{'ColoMBIa' | uppercase}}</li>
+      <li>{{'MExico' | uppercase}}</li>
+      <li>{{'ArGenTIna' | uppercase}}</li>
+      <li>{{'BoliVIA' | uppercase}}</li>
+    </ul>
+
+    <p>Nivel de venta del vendedor: {{ 92.3658971250 | number:2}} %</p>
+    <p>Capacidad de entrega de pedidos: {{ false }}</p>
+
+    <script type="text/javascript">
+      var filtro= angular.module('filtros',[]);
+
+
+    </script>
+  </body>
+</html>

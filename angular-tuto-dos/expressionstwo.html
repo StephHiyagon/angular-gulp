@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" ng-app='objects'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expresiones con objetos</title>
+    <script src="angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <div ng-controller='libros'>
+      <p>El título del libro es: {{libro.titulo}}</p>
+      <p>El autor es: {{libro.autor}}</p>
+    </div>
+
+    <script type="text/javascript">
+      var objects = angular.module('objects',[]);
+
+      objects.controller('libros', function($scope){
+        $scope.libro={};
+        $scope.libro.autor='Edgar A. Poe';
+        $scope.libro.titulo='Crímenes policiales';
+        $scope.libro.editorial='Milenio';
+      })
+    </script>
+
+  </body>
+</html>

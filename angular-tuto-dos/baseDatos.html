@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="angular.min.js" charset="utf-8"></script>
+
+  </head>
+  <body ng-app="myAppData">
+    <!-- <div class="" ng-controller="data">
+      <ul>
+        <li ng-repeat="dato in datos" ng-click="mostrar(dato)">{{dato}}</li>
+      </ul>
+      <br>
+      <input type="text" ng-model="nuevoDato">
+      <button type="button" ng-click="agregar()">Agregar dato</button>
+      <hr>
+      <ul>
+        <li ng-repeat="actor in actores" ng-click="mostrar(actor.lastName)">{{actor.name}}</li>
+      </ul>
+    </div> -->
+    <div class="" ng-controller="dataJSON">
+      <h2>Datos de JSON externo</h2>
+      <p>{{equipo.historia}}</p>
+      <ul>
+        <li ng-repeat="integrante in equipo.integrantes">{{integrante.nombre}}</li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      var appData = angular.module('myAppData', []);
+      //
+      // appData.controller('data', function($scope){
+      //   $scope.datos = ['piedra','papel','tijera'];
+      //   $scope.actores = [
+      //     {name:'Fernando', lastName:'Colunga'},
+      //     {name:'Rene', lastName: 'Stickler'},
+      //     {name:'Mauricio', lastName:'Islas'}
+      //   ];
+      //
+      //
+      //   $scope.agregar = function(){
+      //     $scope.datos.push($scope.nuevoDato);
+      //   }
+      //
+      //   $scope.mostrar = function(info){
+      //     alert(info);
+      //   }
+      // });
+
+      appData.controller('dataJSON', function($scope,$http){
+        // $scope.importar = function(){
+          $http.get('datos.json').then(function(resp){
+            $scope.equipo = resp;
+            // console.info(resp);
+          });
+        // };
+        // $scope.importar();
+      });
+    </script>
+  </body>
+</html>

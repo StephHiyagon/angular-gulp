@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='fechas'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>filtros-expresiones</title>
+    <script src="angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <p>{{'1442439719756' | date:'dd/MM/yyyy'}}</p>
+    <p>{{'1405222862000' | date: 'fullDate' | uppercase}}</p>
+
+    <script type="text/javascript">
+      var filtro= angular.module('fechas',[]);
+
+
+    </script>
+  </body>
+</html>

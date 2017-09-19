@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='filtrosPersonalizados'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>filtros-expresiones</title>
+    <script src="angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <h2>{{ 'Cachorros' | cambiar : '_' : 'c'}}</h2>
+
+    <script type="text/javascript">
+      var filtroP= angular.module('filtrosPersonalizados',[]);
+
+      filtroP.filter('cambiar', function(){
+        var cambiarfiltro=  function(datos, primerV, segundoV){
+          // var nuevoCambio= datos.replace(RegExp('o','g'),'-');
+          // var nuevoCambio= datos.replace(/o/g,primerV);
+          var nuevoCambio= datos.replace(RegExp(segundoV,'g'),primerV);
+          return nuevoCambio;
+        }
+        return cambiarfiltro;
+      })
+
+    </script>
+  </body>
+</html>

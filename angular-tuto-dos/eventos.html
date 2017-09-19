@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eventos del mouse de angularjs</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs//angular.js"></script> -->
+  <script src="angular.min.js" charset="utf-8"></script>
+  <script src="angular-touch.min.js" charset="utf-8"></script>
+  <style media="screen">
+    .cuadrado{
+      width:300px;
+      height:200px;
+      background-color: red;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body ng-app="eventos">
+  <div ng-controller='mouse'>
+    <button ng-click="saludo()">Haz click</button>
+    <button ng-dblclick="saludo()">Doble click</button>
+    <strong>{{conteo}}</strong>
+    <hr>
+    <div class="cuadrado" ng-mouseleave="fueraDiv()" ng-mouseenter="dentroDiv()" ng-swipe-left="swipeIzq()" ng-swipe-right="swipeDer()">
+      <center>Estado {{estado}}<center/>
+    </div>
+  </div>
+
+  <div ng-controller='teclado'>
+    <input type="text" autofocus="true" ng-keydown="detectaTecla($event)">
+    <br>
+    <p>{{ texto }}</p>
+  </div>
+  <script type="text/javascript">
+    var event = angular.module('eventos',['ngTouch']);
+
+    event.controller('mouse', function($scope){
+      $scope.conteo = 0;
+
+      $scope.saludo = function(){
+        $scope.conteo++;
+      }
+
+      $scope.dentroDiv =function(){
+        $scope.estado = 'DentrodelDiv';
+      }
+
+      $scope.fueraDiv = function(){
+        $scope.estado = 'FueradeDiv';
+      }
+
+      $scope.swipeIzq = function(){
+        $scope.estado = 'Swipe <--';
+      }
+
+      $scope.swipeDer = function(){
+        $scope.estado = 'Swipe -->';
+      }
+    })
+
+    event.controller('teclado', function($scope){
+      $scope.detectaTecla = function(e){
+        console.info(e);
+        switch (e.keyCode) {
+          case 37:
+            $scope.texto ='izquierda';
+            break;
+          case 38:
+            $scope.texto ='arriba';
+            break;
+          case 39:
+            $scope.texto ='derecha';
+            break;
+          case 40:
+            $scope.texto ='abajo';
+            break;
+        }
+      }
+    })
+  </script>
+  <!-- <script src="scripts/app.js" charset="utf-8"></script>
+  <script src="scripts/controllers/expressions.js" charset="utf-8"></script> -->
+</body>
+</html>

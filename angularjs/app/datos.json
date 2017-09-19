@@ -1,0 +1,20 @@
+{
+	"integrantes": [{
+			"nombre": "Rita Hiyagon",
+			"especialidad": "arañar",
+			"dieta": "carne y wiskas"
+		},
+		{
+			"nombre": "Pio Hiyagon",
+			"especialidad": "morder",
+			"dieta": "atún"
+		},
+		{
+			"nombre": "Peludo Hiyagon",
+			"especialidad": "ladrar",
+			"dieta": "comida casera"
+		}
+	],
+	"historia": "Son 3 buenos hijos de la familia Hiyagon, Peludo es el mayor de todos. Rita es la segunda y Pio es el menor"
+
+}
